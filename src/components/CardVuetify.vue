@@ -1,8 +1,9 @@
 <template>
-  <v-col>
+  <v-col id="colon">
     <v-card
       :loading="loading"
-      class="mx-auto my-12 align-self-stretch"
+      class="mx-auto my-12 flex flex-column justify-center"
+      style="position: relative"
       max-width="250"
     >
       <template slot="progress">
@@ -16,13 +17,16 @@
       <!-- Imagine Card -->
       <v-img height="250" :src="img"></v-img>
       <!-- Imagine Titolo -->
-      <v-card-title>{{ title }}</v-card-title>
+      <v-card-title>
+        <h6 class="text-center text-wrap text-truncate">
+          {{ title }}
+        </h6>
+      </v-card-title>
+
       <!-- Text Area -->
       <v-card-text>
-        <v-row align="center" class="mx-0">
-          <!-- Autore -->
-          <div class="my-2 text-subtitle-1">{{ author }}</div>
-        </v-row>
+        <!-- Autore -->
+        <div class="my-2 text-subtitle-1">{{ author }}</div>
         <!-- Anno -->
         <div>{{ year }}</div>
       </v-card-text>
@@ -43,7 +47,6 @@ export default {
   data: () => ({
     loading: false,
     selection: 1,
-    justify: ["start", "end", "center", "baseline", "auto", "stretch"],
   }),
   props: {
     img: String,
@@ -62,4 +65,12 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+#colon {
+  $colonne-md: 5;
+  $colonne-sm: 3;
+  $colonne-xs: 2;
+  margin: 1rem;
+  max-width: calc((100% / $colonne-md) - 2rem);
+  flex-basis: 20%;
+}
 </style>

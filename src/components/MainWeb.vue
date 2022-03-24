@@ -1,17 +1,19 @@
 <template>
-  <v-container>
-    <v-row class="align-stretch" no-gutters>
-      <CardVue
-        v-for="(card, index) in albums"
-        :img="card.poster"
-        :title="card.title"
-        :year="card.year"
-        :genre="card.genre"
-        :author="card.author"
-        :key="index"
-      />
-    </v-row>
-  </v-container>
+  <main>
+    <v-container align-center text-xs-center>
+      <v-row>
+        <CardVue
+          v-for="(card, index) in albums"
+          :img="card.poster"
+          :title="card.title"
+          :year="card.year"
+          :genre="card.genre"
+          :author="card.author"
+          :key="index"
+        />
+      </v-row>
+    </v-container>
+  </main>
 </template>
 
 <script>
