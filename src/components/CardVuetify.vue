@@ -76,12 +76,4 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-#colon {
-  $colonne-md: 5;
-  $colonne-sm: 3;
-  $colonne-xs: 2;
-  margin: 1rem;
-  max-width: calc((100% / $colonne-md) - 2rem);
-  flex-basis: 20%;
-}
 </style>

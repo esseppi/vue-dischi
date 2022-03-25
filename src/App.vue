@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <header>
-      <HeaderWeb />
+      <HeaderWeb @SearchApp="setSearchContent" />
     </header>
     <v-main>
       <MainWeb />
@@ -15,15 +15,18 @@ import MainWeb from "./components/MainWeb";
 
 export default {
   name: "App",
-
+  data: () => ({
+    Content: "",
+  }),
+  methods: {
+    setSearchContent(argomento) {
+      console.log(argomento);
+    },
+  },
   components: {
     HeaderWeb,
     MainWeb,
   },
-
-  data: () => ({
-    //
-  }),
 };
 </script>
 <style lang="scss" scoped>
