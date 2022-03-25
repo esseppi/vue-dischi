@@ -1,27 +1,27 @@
 <template>
-  <main>
-    <v-container @click="searchContent">
-      <v-row class="justify-center">
-        <CardVue
-          v-for="(card, index) in searchCharacter"
-          :img="card.poster"
-          :title="card.title"
-          :year="card.year"
-          :genre="card.genre"
-          :author="card.author"
-          :key="index"
-        />
-      </v-row>
-    </v-container>
-  </main>
+  <v-container @click="searchContent">
+    <SelectGenre />
+    <v-row class="justify-center">
+      <CardVue
+        v-for="(card, index) in searchCharacter"
+        :img="card.poster"
+        :title="card.title"
+        :year="card.year"
+        :genre="card.genre"
+        :author="card.author"
+        :key="index"
+      />
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 import CardVue from "./CardVuetify.vue";
+import SelectGenre from "./SelectGenre.vue";
 
 export default {
   name: "MainWeb",
-  components: { CardVue },
+  components: { CardVue, SelectGenre },
   data: () => ({
     albums: [],
   }),

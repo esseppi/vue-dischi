@@ -1,9 +1,13 @@
 <template>
   <v-app>
-    <!-- importo valore $emit (@SearchApp); salvo valore in data con funzione setSearchContent-->
-    <HeaderWeb @SearchApp="setSearchContent" />
-    <!-- mando valore salvato in data (Content) a MainWeb come props -->
-    <MainWeb :searchContent="Content" />
+    <header>
+      <!-- importo valore $emit (@SearchApp); salvo valore in data con funzione setSearchContent-->
+      <HeaderWeb @SearchApp="setSearchContent" />
+    </header>
+    <main>
+      <!-- mando valore salvato in data (Content) a MainWeb come props -->
+      <MainWeb :searchContent="Content" />
+    </main>
   </v-app>
 </template>
 
@@ -22,7 +26,6 @@ export default {
       console.log(argomento);
     },
   },
-
   components: {
     HeaderWeb,
     MainWeb,
@@ -30,4 +33,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+main {
+  padding-top: 3rem;
+}
 </style>

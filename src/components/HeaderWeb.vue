@@ -1,6 +1,6 @@
 
 <template>
-  <v-app-bar app>
+  <v-app-bar dense flat app>
     <div class="d-flex align-center">
       <v-img
         alt="Vuetify Logo"
@@ -11,11 +11,13 @@
         width="40"
       />
     </div>
-
-    <v-spacer></v-spacer>
     <v-text-field
-      @keyup.enter="$emit('SearchApp', SearchContent)"
+      label="Search"
+      solo
+      fill-height
+      dense
       clearable
+      @keyup.enter="$emit('SearchApp', SearchContent)"
       v-model="SearchContent"
     >
     </v-text-field>
