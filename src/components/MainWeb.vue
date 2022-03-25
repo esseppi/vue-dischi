@@ -1,7 +1,7 @@
 <template>
   <main>
-    <v-container align-center text-xs-center>
-      <v-row>
+    <v-container>
+      <v-row class="justify-center">
         <CardVue
           v-for="(card, index) in albums"
           :img="card.poster"
@@ -18,12 +18,14 @@
 
 <script>
 import CardVue from "./CardVuetify.vue";
+
 export default {
   name: "MainWeb",
   components: { CardVue },
   data: () => ({
     albums: [],
   }),
+
   created() {
     const axios = require("axios");
     axios

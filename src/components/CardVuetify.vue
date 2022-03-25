@@ -1,9 +1,17 @@
 <template>
-  <v-col id="colon">
+  <v-col cols="6" sm="4" md="3" lg="2">
     <v-card
       :loading="loading"
-      class="mx-auto my-12 flex flex-column justify-center"
+      class="
+        mx-auto
+        my-12
+        flex flex-column
+        justify-center
+        text-center
+        align-self-stretch
+      "
       style="position: relative"
+      width=""
       max-width="250"
     >
       <template slot="progress">
@@ -17,8 +25,8 @@
       <!-- Imagine Card -->
       <v-img height="250" :src="img"></v-img>
       <!-- Imagine Titolo -->
-      <v-card-title>
-        <h6 class="text-center text-wrap text-truncate">
+      <v-card-title class="justify-center">
+        <h6>
           {{ title }}
         </h6>
       </v-card-title>
@@ -33,7 +41,7 @@
 
       <v-divider class="mx-4"></v-divider>
 
-      <v-card-actions>
+      <v-card-actions class="d-flex justify-center">
         <v-btn color="deep-purple lighten-2" text @click="reserve">
           Acquista
         </v-btn>
@@ -48,6 +56,7 @@ export default {
     loading: false,
     selection: 1,
   }),
+
   props: {
     img: String,
     title: String,
@@ -62,6 +71,8 @@ export default {
       setTimeout(() => (this.loading = false), 2000);
     },
   },
+
+  // https://stackoverflow.com/questions/60908047/vuetify-v-card-fit-like-a-puzzle-masonry-layout
 };
 </script>
 <style scoped lang="scss">
