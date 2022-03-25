@@ -1,13 +1,16 @@
 <template>
   <v-container @click="searchContent">
-    <SelectGenre />
+    <SelectGenre
+      v-for="(card, index) in albums"
+      :key="index"
+      :genre="card.genre"
+    />
     <v-row class="justify-center">
       <CardVue
         v-for="(card, index) in searchCharacter"
         :img="card.poster"
         :title="card.title"
         :year="card.year"
-        :genre="card.genre"
         :author="card.author"
         :key="index"
       />

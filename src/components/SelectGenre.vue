@@ -1,5 +1,5 @@
 <template>
-  <v-select :items="['Foo', 'Bar']" label="Items"></v-select>
+  <v-select :items="[genre]" label="Items"> </v-select>
 </template>
 <script>
 export default {
@@ -9,6 +9,7 @@ export default {
       selectData: null,
     };
   },
+
   props: { genre: String },
 };
 </script>
