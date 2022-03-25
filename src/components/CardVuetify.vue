@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="6" sm="4" md="3" lg="2">
+  <v-col cols="6" sm="4" md="3">
     <v-card
       :loading="loading"
       class="
