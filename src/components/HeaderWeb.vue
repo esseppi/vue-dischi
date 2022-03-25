@@ -20,6 +20,7 @@
     >
     </v-text-field>
     <v-btn @click="$emit('SearchApp', SearchContent)">Filtra</v-btn>
+    <v-btn @click="$emit('SearchApp', '')">Elimina Filtro</v-btn>
   </v-app-bar>
 </template>
 

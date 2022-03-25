@@ -12,7 +12,6 @@
           :key="index"
         />
       </v-row>
-      <v-btn @click="searchCharacter">TRY</v-btn>
     </v-container>
   </main>
 </template>
@@ -29,11 +28,7 @@ export default {
   props: {
     searchContent: String,
   },
-  methods: {
-    try() {
-      console.log(this.searchContent);
-    },
-  },
+  methods: {},
   computed: {
     searchCharacter() {
       console.log("computed searchCharacter eseguito");
