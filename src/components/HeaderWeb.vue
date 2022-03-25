@@ -13,9 +13,13 @@
     </div>
 
     <v-spacer></v-spacer>
-    <v-text-field v-model="SearchContent"> </v-text-field>
-    <v-btn @click="$emit('SearchApp', SearchContent)">spingi</v-btn>
-    {{ SearchContent }}
+    <v-text-field
+      @keyup.enter="$emit('SearchApp', SearchContent)"
+      clearable
+      v-model="SearchContent"
+    >
+    </v-text-field>
+    <v-btn @click="$emit('SearchApp', SearchContent)">Filtra</v-btn>
   </v-app-bar>
 </template>
 

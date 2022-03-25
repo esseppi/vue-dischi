@@ -1,9 +1,9 @@
 <template>
   <main>
-    <v-container>
+    <v-container @click="searchContent">
       <v-row class="justify-center">
         <CardVue
-          v-for="(card, index) in albums"
+          v-for="(card, index) in searchCharacter"
           :img="card.poster"
           :title="card.title"
           :year="card.year"
@@ -12,6 +12,7 @@
           :key="index"
         />
       </v-row>
+      <v-btn @click="searchCharacter">TRY</v-btn>
     </v-container>
   </main>
 </template>
@@ -25,7 +26,23 @@ export default {
   data: () => ({
     albums: [],
   }),
-
+  props: {
+    searchContent: String,
+  },
+  methods: {
+    try() {
+      console.log(this.searchContent);
+    },
+  },
+  computed: {
+    searchCharacter() {
+      console.log("computed searchCharacter eseguito");
+      // eslint-disable-next-line max-len
+      return this.albums.filter((card) =>
+        card.title.toLowerCase().includes(this.searchContent.toLowerCase())
+      );
+    },
+  },
   created() {
     const axios = require("axios");
     axios
