@@ -1,18 +1,24 @@
 <template>
-  <v-container @click="searchContent">
-    <SelectGenre
-      v-for="(card, index) in albums"
-      :key="index"
-      :genre="card.genre"
-    />
+  <v-container>
+    <v-select
+      @change="searchGenr"
+      label="Filtra un genere"
+      v-model="searchGenre"
+      :items="albums"
+      item-text="genre"
+      item-value="genre"
+    >
+    </v-select>
     <v-row class="justify-center">
       <CardVue
-        v-for="(card, index) in searchCharacter"
+        v-for="card in searchCharacter"
         :img="card.poster"
         :title="card.title"
         :year="card.year"
+        :genre="card.genre"
         :author="card.author"
-        :key="index"
+        :searchGenr="searchGenre"
+        :key="card.title"
       />
     </v-row>
   </v-container>
@@ -20,27 +26,39 @@
 
 <script>
 import CardVue from "./CardVuetify.vue";
-import SelectGenre from "./SelectGenre.vue";
 
 export default {
   name: "MainWeb",
-  components: { CardVue, SelectGenre },
+  components: { CardVue },
   data: () => ({
     albums: [],
+    trying: null,
+    searchGenre: "",
   }),
   props: {
     searchContent: String,
   },
-  methods: {},
   computed: {
+    searchGenr() {
+      console.log("computed searchGen eseguito");
+
+      // for (let card = 0; card < this.albums.length; card++) {
+      //   const element = this.albums[card];
+      //   if (element.genre == this.searchGenre) {
+      //     return this.albums.push(element);
+      //   }
+      // }
+      return this.albums.filter((card) =>
+        card.genre.toLowerCase().includes(this.searchGenre.toLowerCase())
+      );
+    },
     searchCharacter() {
-      console.log("computed searchCharacter eseguito");
-      // eslint-disable-next-line max-len
       return this.albums.filter((card) =>
         card.title.toLowerCase().includes(this.searchContent.toLowerCase())
       );
     },
   },
+  // PRENDO DATI DA API
   created() {
     const axios = require("axios");
     axios

@@ -12,8 +12,10 @@
       />
     </div>
     <v-text-field
+      flat
       label="Search"
       solo
+      height="70"
       fill-height
       dense
       clearable

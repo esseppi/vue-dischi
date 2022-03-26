@@ -1,7 +1,11 @@
 <template>
   <v-col cols="6" sm="4" md="3">
     <v-card
+      v-if="searchGenr.length < 1 || genre == searchGenr"
       :loading="loading"
+      :class="{
+        //     'd-none': genre == searchGenr,
+      }"
       class="
         mx-auto
         my-12
@@ -37,6 +41,8 @@
         <div class="my-2 text-subtitle-1">{{ author }}</div>
         <!-- Anno -->
         <div>{{ year }}</div>
+        <div>{{ genre }}</div>
+        <div>{{ searchGenr }}</div>
       </v-card-text>
 
       <v-divider class="mx-4"></v-divider>
@@ -63,6 +69,7 @@ export default {
     author: String,
     genre: String,
     year: String,
+    searchGenr: String,
   },
 
   methods: {
