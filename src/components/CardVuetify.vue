@@ -42,7 +42,6 @@
         <!-- Anno -->
         <div>{{ year }}</div>
         <div>{{ genre }}</div>
-        <div>{{ searchGenr }}</div>
       </v-card-text>
 
       <v-divider class="mx-4"></v-divider>

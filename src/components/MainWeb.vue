@@ -38,7 +38,7 @@ export default {
   props: {
     searchContent: String,
   },
-  computed: {
+  methods: {
     searchGenr() {
       console.log("computed searchGen eseguito");
 
@@ -52,6 +52,8 @@ export default {
         card.genre.toLowerCase().includes(this.searchGenre.toLowerCase())
       );
     },
+  },
+  computed: {
     searchCharacter() {
       return this.albums.filter((card) =>
         card.title.toLowerCase().includes(this.searchContent.toLowerCase())
