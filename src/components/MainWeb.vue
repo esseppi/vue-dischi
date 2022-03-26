@@ -1,13 +1,16 @@
 <template>
   <v-container>
-    <v-select
+    <v-autocomplete
+      @click:append="searchGenre = null"
+      :append-icon="currentIcon[iconGenreIndex]"
+      clearable
       label="Filtra un genere"
       v-model="searchGenre"
       :items="albums"
       item-text="genre"
       item-value="genre"
     >
-    </v-select>
+    </v-autocomplete>
     <v-row class="justify-center">
       <CardVue
         v-for="card in searchCharacter"
@@ -30,14 +33,25 @@ export default {
   name: "MainWeb",
   components: { CardVue },
   data: () => ({
+    iconGenreIndex: 1,
+    currentIcon: ["mdi-delete", "mdi-select"],
     albums: [],
-    trying: null,
-    searchGenre: "",
+    searchGenre: null,
   }),
   props: {
     searchContent: String,
   },
-  methods: {},
+  methods: {
+    changeIconGenre() {
+      // this.searchGenre == null
+      //   ? this.iconGenreIndex == 0
+      //   : this.iconGenreIndex == 1;
+      if (this.searchGenre == null) {
+        this.iconGenreIndex = 0;
+      }
+      console.log(this.iconGenreIndex);
+    },
+  },
   computed: {
     searchCharacter() {
       return this.albums.filter((card) =>

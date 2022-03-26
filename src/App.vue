@@ -6,7 +6,7 @@
     </header>
     <main>
       <!-- mando valore salvato in data (Content) a MainWeb come props -->
-      <MainWeb :searchContent="Content" />
+      <MainWeb :searchContent="searchTitle" />
     </main>
   </v-app>
 </template>
@@ -18,11 +18,11 @@ import MainWeb from "./components/MainWeb";
 export default {
   name: "App",
   data: () => ({
-    Content: "",
+    searchTitle: "",
   }),
   methods: {
     setSearchContent(argomento) {
-      this.Content = argomento;
+      this.searchTitle = argomento;
     },
   },
   components: {

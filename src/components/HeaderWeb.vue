@@ -11,20 +11,28 @@
         width="40"
       />
     </div>
+    <v-spacer></v-spacer>
+
+    <v-btn @click="$emit('SearchApp', SearchContent)">
+      <v-icon>mdi-magnify</v-icon>
+    </v-btn>
     <v-text-field
+      rounded
+      single-line
+      class="shrink"
+      hide-details="true"
       flat
       label="Search"
       solo
-      height="70"
-      fill-height
       dense
       clearable
       @keyup.enter="$emit('SearchApp', SearchContent)"
       v-model="SearchContent"
     >
     </v-text-field>
-    <v-btn @click="$emit('SearchApp', SearchContent)">Filtra</v-btn>
-    <v-btn @click="$emit('SearchApp', '')">Elimina Filtro</v-btn>
+    <v-btn @click="$emit('SearchApp', '')">
+      <v-icon>mdi-delete</v-icon>
+    </v-btn>
   </v-app-bar>
 </template>
 

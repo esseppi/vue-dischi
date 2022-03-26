@@ -1,15 +1,12 @@
 <template>
   <v-col
-    v-if="searchGenr.length < 1 || genre == searchGenr"
+    v-if="searchGenr == null || genre == searchGenr"
     cols="6"
     sm="4"
     md="3"
   >
     <v-card
       :loading="loading"
-      :class="{
-        //     'd-none': genre == searchGenr,
-      }"
       class="
         mx-auto
         my-12
@@ -19,7 +16,6 @@
         align-self-stretch
       "
       style="position: relative"
-      width=""
       max-width="250"
     >
       <template slot="progress">
