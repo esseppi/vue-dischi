@@ -12,25 +12,31 @@
       />
     </div>
     <v-spacer></v-spacer>
-
     <v-btn @click="$emit('SearchApp', SearchContent)">
       <v-icon>mdi-magnify</v-icon>
     </v-btn>
     <v-text-field
       rounded
       single-line
+      clearable
       class="shrink"
       hide-details="true"
       flat
-      label="Search"
-      solo
+      label="Cerca brano"
       dense
-      clearable
-      @keyup.enter="$emit('SearchApp', SearchContent)"
+      @keyup.enter="
+        $emit('SearchApp', SearchContent);
+        cleanText();
+      "
       v-model="SearchContent"
     >
     </v-text-field>
-    <v-btn @click="$emit('SearchApp', '')">
+    <v-btn
+      @click="
+        $emit('SearchApp', '');
+        cleanText();
+      "
+    >
       <v-icon>mdi-delete</v-icon>
     </v-btn>
   </v-app-bar>
@@ -43,6 +49,11 @@ export default {
     return {
       SearchContent: "",
     };
+  },
+  methods: {
+    cleanText() {
+      this.SearchContent = "";
+    },
   },
 };
 </script>
