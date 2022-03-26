@@ -23,7 +23,6 @@ export default {
   methods: {
     setSearchContent(argomento) {
       this.Content = argomento;
-      console.log(argomento);
     },
   },
   components: {

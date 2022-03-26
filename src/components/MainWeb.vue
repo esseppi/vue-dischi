@@ -1,7 +1,6 @@
 <template>
   <v-container>
     <v-select
-      @change="searchGenr"
       label="Filtra un genere"
       v-model="searchGenre"
       :items="albums"
@@ -38,21 +37,7 @@ export default {
   props: {
     searchContent: String,
   },
-  methods: {
-    searchGenr() {
-      console.log("computed searchGen eseguito");
-
-      // for (let card = 0; card < this.albums.length; card++) {
-      //   const element = this.albums[card];
-      //   if (element.genre == this.searchGenre) {
-      //     return this.albums.push(element);
-      //   }
-      // }
-      return this.albums.filter((card) =>
-        card.genre.toLowerCase().includes(this.searchGenre.toLowerCase())
-      );
-    },
-  },
+  methods: {},
   computed: {
     searchCharacter() {
       return this.albums.filter((card) =>

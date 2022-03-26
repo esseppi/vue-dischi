@@ -1,7 +1,11 @@
 <template>
-  <v-col cols="6" sm="4" md="3">
+  <v-col
+    v-if="searchGenr.length < 1 || genre == searchGenr"
+    cols="6"
+    sm="4"
+    md="3"
+  >
     <v-card
-      v-if="searchGenr.length < 1 || genre == searchGenr"
       :loading="loading"
       :class="{
         //     'd-none': genre == searchGenr,
