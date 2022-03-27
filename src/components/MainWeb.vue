@@ -1,6 +1,7 @@
 <template>
   <v-container class="prova" fluid>
     <v-autocomplete
+      class="width=50"
       @click:append="searchGenre = null"
       clear-icon="mdi-delete"
       clearable
@@ -11,7 +12,7 @@
       item-value="genre"
     >
     </v-autocomplete>
-    <v-row no-gutters class="justify-center">
+    <v-row class="justify-center">
       <CardVue
         v-for="card in searchCharacter"
         :img="card.poster"

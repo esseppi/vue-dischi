@@ -1,6 +1,7 @@
 <template>
   <v-col v-if="searchGenr == null || genre == searchGenr">
     <v-card
+      outline
       :loading="loading"
       class="
         mx-auto
@@ -11,7 +12,7 @@
         align-self-stretch
       "
       style="position: relative"
-      width="250px"
+      width="250"
     >
       <template slot="progress">
         <!-- Loading che si attiva nel caricamento button -->
