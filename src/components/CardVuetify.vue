@@ -1,10 +1,5 @@
 <template>
-  <v-col
-    v-if="searchGenr == null || genre == searchGenr"
-    cols="6"
-    sm="4"
-    md="3"
-  >
+  <v-col v-if="searchGenr == null || genre == searchGenr">
     <v-card
       :loading="loading"
       class="
@@ -16,7 +11,7 @@
         align-self-stretch
       "
       style="position: relative"
-      max-width="250"
+      width="250px"
     >
       <template slot="progress">
         <!-- Loading che si attiva nel caricamento button -->
